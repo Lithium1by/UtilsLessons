@@ -34,6 +34,9 @@
             this.блокнотToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiInsertDate = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiInsertTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiLoad = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.tbpControl = new System.Windows.Forms.TabControl();
@@ -55,9 +58,12 @@
             this.btnRandom = new System.Windows.Forms.Button();
             this.tbpNote = new System.Windows.Forms.TabPage();
             this.rtbNotepad = new System.Windows.Forms.RichTextBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsmiSave = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.tbpPass = new System.Windows.Forms.TabPage();
+            this.clbPassProp = new System.Windows.Forms.CheckedListBox();
+            this.nudPassLength = new System.Windows.Forms.NumericUpDown();
+            this.lblPassLength = new System.Windows.Forms.Label();
+            this.btnPassGreate = new System.Windows.Forms.Button();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.msUp.SuspendLayout();
             this.tbpControl.SuspendLayout();
             this.tbpCounter.SuspendLayout();
@@ -65,6 +71,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudTo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFrom)).BeginInit();
             this.tbpNote.SuspendLayout();
+            this.tbpPass.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPassLength)).BeginInit();
             this.SuspendLayout();
             // 
             // msUp
@@ -124,6 +132,29 @@
             this.tsmiInsertTime.Text = "Вставить время";
             this.tsmiInsertTime.Click += new System.EventHandler(this.tsmiInsertTime_Click);
             // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(229, 6);
+            // 
+            // tsmiSave
+            // 
+            this.tsmiSave.Name = "tsmiSave";
+            this.tsmiSave.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.tsmiSave.Size = new System.Drawing.Size(232, 22);
+            this.tsmiSave.Text = "Сохранить";
+            this.tsmiSave.Click += new System.EventHandler(this.tsmiSave_Click);
+            // 
+            // tsmiLoad
+            // 
+            this.tsmiLoad.Name = "tsmiLoad";
+            this.tsmiLoad.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.L)));
+            this.tsmiLoad.Size = new System.Drawing.Size(232, 22);
+            this.tsmiLoad.Text = "Загрузить";
+            this.tsmiLoad.Click += new System.EventHandler(this.tsmiLoad_Click);
+            // 
             // tsmiHelp
             // 
             this.tsmiHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -141,9 +172,10 @@
             // 
             // tbpControl
             // 
-            this.tbpControl.Controls.Add(this.tbpCounter);
-            this.tbpControl.Controls.Add(this.tbpRandom);
+            this.tbpControl.Controls.Add(this.tbpPass);
             this.tbpControl.Controls.Add(this.tbpNote);
+            this.tbpControl.Controls.Add(this.tbpRandom);
+            this.tbpControl.Controls.Add(this.tbpCounter);
             this.tbpControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbpControl.Location = new System.Drawing.Point(0, 24);
             this.tbpControl.Name = "tbpControl";
@@ -362,28 +394,89 @@
             this.rtbNotepad.TabIndex = 0;
             this.rtbNotepad.Text = "";
             // 
-            // toolStripMenuItem1
+            // tbpPass
             // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(229, 6);
+            this.tbpPass.Controls.Add(this.tbPassword);
+            this.tbpPass.Controls.Add(this.btnPassGreate);
+            this.tbpPass.Controls.Add(this.lblPassLength);
+            this.tbpPass.Controls.Add(this.nudPassLength);
+            this.tbpPass.Controls.Add(this.clbPassProp);
+            this.tbpPass.Location = new System.Drawing.Point(4, 22);
+            this.tbpPass.Name = "tbpPass";
+            this.tbpPass.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpPass.Size = new System.Drawing.Size(276, 211);
+            this.tbpPass.TabIndex = 3;
+            this.tbpPass.Text = "Пороли";
+            this.tbpPass.UseVisualStyleBackColor = true;
             // 
-            // tsmiSave
+            // clbPassProp
             // 
-            this.tsmiSave.Name = "tsmiSave";
-            this.tsmiSave.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.tsmiSave.Size = new System.Drawing.Size(232, 22);
-            this.tsmiSave.Text = "Сохранить";
-            this.tsmiSave.Click += new System.EventHandler(this.tsmiSave_Click);
+            this.clbPassProp.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.clbPassProp.CheckOnClick = true;
+            this.clbPassProp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.clbPassProp.FormattingEnabled = true;
+            this.clbPassProp.Items.AddRange(new object[] {
+            "Цифры",
+            "Прописные буквы",
+            "Строчные буквы",
+            "Спец. символы: #, %, ^, & ,* , ("});
+            this.clbPassProp.Location = new System.Drawing.Point(8, 3);
+            this.clbPassProp.Name = "clbPassProp";
+            this.clbPassProp.Size = new System.Drawing.Size(242, 85);
+            this.clbPassProp.TabIndex = 0;
             // 
-            // tsmiLoad
+            // nudPassLength
             // 
-            this.tsmiLoad.Name = "tsmiLoad";
-            this.tsmiLoad.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.L)));
-            this.tsmiLoad.Size = new System.Drawing.Size(232, 22);
-            this.tsmiLoad.Text = "Загрузить";
-            this.tsmiLoad.Click += new System.EventHandler(this.tsmiLoad_Click);
+            this.nudPassLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.nudPassLength.Location = new System.Drawing.Point(135, 89);
+            this.nudPassLength.Maximum = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
+            this.nudPassLength.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.nudPassLength.Name = "nudPassLength";
+            this.nudPassLength.Size = new System.Drawing.Size(69, 26);
+            this.nudPassLength.TabIndex = 1;
+            this.nudPassLength.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // lblPassLength
+            // 
+            this.lblPassLength.AutoSize = true;
+            this.lblPassLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblPassLength.Location = new System.Drawing.Point(8, 91);
+            this.lblPassLength.Name = "lblPassLength";
+            this.lblPassLength.Size = new System.Drawing.Size(121, 20);
+            this.lblPassLength.TabIndex = 2;
+            this.lblPassLength.Text = "Длина пароля:";
+            // 
+            // btnPassGreate
+            // 
+            this.btnPassGreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnPassGreate.Location = new System.Drawing.Point(8, 121);
+            this.btnPassGreate.Name = "btnPassGreate";
+            this.btnPassGreate.Size = new System.Drawing.Size(156, 32);
+            this.btnPassGreate.TabIndex = 3;
+            this.btnPassGreate.Text = "Создать пароль";
+            this.btnPassGreate.UseVisualStyleBackColor = true;
+            this.btnPassGreate.Click += new System.EventHandler(this.btnPassGreate_Click);
+            // 
+            // tbPassword
+            // 
+            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.tbPassword.Location = new System.Drawing.Point(7, 160);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(205, 19);
+            this.tbPassword.TabIndex = 4;
             // 
             // frmUtils
             // 
@@ -406,6 +499,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nudTo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudFrom)).EndInit();
             this.tbpNote.ResumeLayout(false);
+            this.tbpPass.ResumeLayout(false);
+            this.tbpPass.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPassLength)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,6 +539,12 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem tsmiSave;
         private System.Windows.Forms.ToolStripMenuItem tsmiLoad;
+        private System.Windows.Forms.TabPage tbpPass;
+        private System.Windows.Forms.CheckedListBox clbPassProp;
+        private System.Windows.Forms.Label lblPassLength;
+        private System.Windows.Forms.NumericUpDown nudPassLength;
+        private System.Windows.Forms.Button btnPassGreate;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }
 

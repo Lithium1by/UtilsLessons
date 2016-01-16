@@ -16,3 +16,12 @@ D:\Git\UtilsLessons\MyUtils\obj\Debug\MyUtils.frmUtils.resources
 D:\Git\UtilsLessons\MyUtils\obj\Debug\MyUtils.Properties.Resources.resources
 D:\Git\UtilsLessons\MyUtils\obj\Debug\MyUtils.csproj.GenerateResource.Cache
 D:\Git\UtilsLessons\MyUtils\obj\Debug\MyUtils.csprojResolveAssemblyReference.cache
+D:\Git\MyUtils\bin\Debug\MyUtils.exe.config
+D:\Git\MyUtils\obj\Debug\MyUtils.exe
+D:\Git\MyUtils\obj\Debug\MyUtils.pdb
+D:\Git\MyUtils\bin\Debug\MyUtils.exe
+D:\Git\MyUtils\bin\Debug\MyUtils.pdb
+D:\Git\MyUtils\obj\Debug\MyUtils.csprojResolveAssemblyReference.cache
+D:\Git\MyUtils\obj\Debug\MyUtils.frmUtils.resources
+D:\Git\MyUtils\obj\Debug\MyUtils.Properties.Resources.resources
+D:\Git\MyUtils\obj\Debug\MyUtils.csproj.GenerateResource.Cache

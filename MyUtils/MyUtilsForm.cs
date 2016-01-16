@@ -14,6 +14,7 @@ namespace MyUtils
     {
         int count = 0;
         Random rnd;
+        char[] spec_char = new char[] { '#', '%', '^', '&', '*', '(' };
 
         public frmUtils()
         {
@@ -28,7 +29,7 @@ namespace MyUtils
 
         private void tsmiAbout_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Разработал:Витя Терехов!!!","О программе");
+            MessageBox.Show("Разработал:Витя Терехов!!!", "О программе");
         }
 
         private void btnCountPlus_Click(object sender, EventArgs e)
@@ -52,7 +53,7 @@ namespace MyUtils
         private void btnRandom_Click(object sender, EventArgs e)
         {
             int n;
-            n = rnd.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value)+1);
+            n = rnd.Next(Convert.ToInt32(nudFrom.Value), Convert.ToInt32(nudTo.Value) + 1);
             lblRandomResult.Text = n.ToString();
             if (cbRandom.Checked == true)
             {
@@ -81,7 +82,7 @@ namespace MyUtils
 
         private void tsmiInsertDate_Click(object sender, EventArgs e)
         {
-            rtbNotepad.AppendText(DateTime.Now.ToShortDateString()+"\n");
+            rtbNotepad.AppendText(DateTime.Now.ToShortDateString() + "\n");
         }
 
         private void tsmiInsertTime_Click(object sender, EventArgs e)
@@ -111,7 +112,7 @@ namespace MyUtils
             {
                 MessageBox.Show("Ошибка сохранения");
             }
-         }
+        }
         private void tsmiLoad_Click(object sender, EventArgs e)
         {
             LoadNotepad();
@@ -120,6 +121,38 @@ namespace MyUtils
         private void frmUtils_Load(object sender, EventArgs e)
         {
             LoadNotepad();
+            clbPassProp.SetItemChecked(0, true);
+            clbPassProp.SetItemChecked(1, true);
+        }
+
+        private void btnPassGreate_Click(object sender, EventArgs e)
+        {
+            if (clbPassProp.CheckedItems.Count == 0) return;
+            string password = "";
+
+            for (int i = 0; i < nudPassLength.Value; i++)
+            {
+                int n = rnd.Next(0, clbPassProp.CheckedItems.Count);
+                string s = clbPassProp.CheckedItems[n].ToString();
+                switch (s)
+                {
+                    case "Цифры":
+                        password += rnd.Next(10).ToString();
+                        break;
+                    case "Прописные буквы":
+                        password += Convert.ToChar(rnd.Next(65, 88));
+                        break;
+                    case "Строчные буквы":
+                        password += Convert.ToChar(rnd.Next(97, 122));
+                        break;
+                    default:
+                        password += spec_char[rnd.Next(spec_char.Length)];
+                        break;
+                }
+                tbPassword.Text = password;
+                Clipboard.SetText(password);
+            }
+
         }
     }
 }
