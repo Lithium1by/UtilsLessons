@@ -1,9 +1,0 @@
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\bin\Debug\MyUtils.exe.config
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\bin\Debug\MyUtils.exe
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\bin\Debug\MyUtils.pdb
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\obj\Debug\MyUtils.Properties.Resources.resources
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\obj\Debug\MyUtils.csproj.GenerateResource.Cache
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\obj\Debug\MyUtils.exe
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\obj\Debug\MyUtils.pdb
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\obj\Debug\MyUtils.csprojResolveAssemblyReference.cache
-c:\users\lithi\documents\visual studio 2015\Projects\MyUtils\MyUtils\obj\Debug\MyUtils.frmUtils.resources
