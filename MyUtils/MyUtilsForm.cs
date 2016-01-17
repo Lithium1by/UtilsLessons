@@ -15,11 +15,19 @@ namespace MyUtils
         int count = 0;
         Random rnd;
         char[] spec_char = new char[] { '#', '%', '^', '&', '*', '(' };
+        Dictionary<string, double> metrica;
 
         public frmUtils()
         {
             InitializeComponent();
             rnd = new Random();
+            metrica = new Dictionary<string, double>();
+            metrica.Add("мм", 1);
+            metrica.Add("см", 10);
+            metrica.Add("дм", 100);
+            metrica.Add("м", 1000);
+            metrica.Add("км", 1000000);
+            metrica.Add("мили", 1609344);
         }
 
         private void tsmiExit_Click(object sender, EventArgs e)
@@ -153,6 +161,77 @@ namespace MyUtils
                 Clipboard.SetText(password);
             }
 
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            double m1 = metrica[cbFrom.Text];
+            double m2 = metrica[cbTo.Text];
+            double n = Convert.ToDouble(tbFrom.Text);
+            tbTo.Text = (n * m1 / m2).ToString();
+        }
+
+        private void btnSwap_Click(object sender, EventArgs e)
+        {
+            string t = cbFrom.Text;
+            cbFrom.Text = cbTo.Text;
+            cbTo.Text = t;
+        }
+
+        private void cbMetrica_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbMetrica.Text)
+            {
+                case "длина":
+                    metrica.Clear();
+                    metrica.Add("мм", 1);
+                    metrica.Add("см", 10);
+                    metrica.Add("дм", 100);
+                    metrica.Add("м", 1000);
+                    metrica.Add("км", 1000000);
+                    metrica.Add("мили", 1609344);
+                    cbFrom.Items.Clear();
+                    cbFrom.Items.Add("мм");
+                    cbFrom.Items.Add("см");
+                    cbFrom.Items.Add("дм");
+                    cbFrom.Items.Add("м");
+                    cbFrom.Items.Add("км");
+                    cbFrom.Items.Add("мили");
+                    cbFrom.Text = "мм";
+                    cbTo.Items.Clear();
+                    cbTo.Items.Add("мм");
+                    cbTo.Items.Add("см");
+                    cbTo.Items.Add("дм");
+                    cbTo.Items.Add("м");
+                    cbTo.Items.Add("км");
+                    cbTo.Items.Add("мили");
+                    cbTo.Text = "мм";
+                    break;
+                case "вес":
+                    metrica.Clear();
+                    metrica.Add("гр", 1);
+                    metrica.Add("oz", 283);
+                    metrica.Add("фунт", 453.6);
+                    metrica.Add("кг", 1000);
+                    metrica.Add("т", 1000000);
+                    cbFrom.Items.Clear();
+                    cbFrom.Items.Add("фунт");
+                    cbFrom.Items.Add("oz");
+                    cbFrom.Items.Add("гр");
+                    cbFrom.Items.Add("кг");
+                    cbFrom.Items.Add("т");
+                    cbFrom.Text = "гр";
+                    cbTo.Items.Clear();
+                    cbTo.Items.Add("гр");
+                    cbTo.Items.Add("фунт");
+                    cbTo.Items.Add("oz");
+                    cbTo.Items.Add("кг");
+                    cbTo.Items.Add("т");
+                    cbTo.Text = "гр";
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
